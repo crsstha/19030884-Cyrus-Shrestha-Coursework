@@ -2,39 +2,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <asp:Label cssClass="btn btn-success" ID="Label1" runat="server" Text="College Person"></asp:Label>
-
-    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Height="255px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="1060px">
+    <h1 style="color:#336666">COLLEGE MEMBER</h1>
+    <asp:GridView ID="GridView1"  runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1"  OnSelectedIndexChanged="GridView1_SelectedIndexChanged"  CssClass="table table-secondary-bg table striped table-bordered table-hover" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
         <Columns>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="PERSON_ID" HeaderText="PERSON_ID" ReadOnly="True" SortExpression="PERSON_ID" />
-            <asp:BoundField DataField="FIRST_NAME" HeaderText="FIRST_NAME" SortExpression="FIRST_NAME" />
-            <asp:BoundField DataField="LAST_NAME" HeaderText="LAST_NAME" SortExpression="LAST_NAME" />
-            <asp:BoundField DataField="PHONE_NUMBER" HeaderText="PHONE_NUMBER" SortExpression="PHONE_NUMBER" />
+            
+            <asp:CommandField  ButtonType="Button"  ShowDeleteButton="True"
+                showEditButton="True" ControlStyle-CssClass="btn btn-success" />
+            <asp:BoundField DataField="PERSON_ID" HeaderText="PERSON ID" ReadOnly="True" SortExpression="PERSON_ID"/>
+            <asp:BoundField DataField="FIRST_NAME" HeaderText="FIRST NAME" SortExpression="FIRST_NAME" />
+            <asp:BoundField DataField="LAST_NAME" HeaderText="LAST NAME" SortExpression="LAST_NAME" />
+            <asp:BoundField DataField="PHONE_NUMBER" HeaderText="PHONE NUMBER" SortExpression="PHONE_NUMBER" />
             <asp:BoundField DataField="DOB" HeaderText="DOB" SortExpression="DOB" />
             <asp:BoundField DataField="GENDER" HeaderText="GENDER" SortExpression="GENDER" />
             <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#333333" />
-        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White"/>
         <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="White" ForeColor="#333333" />
+        <RowStyle BackColor="White" ForeColor="#333333" BorderStyle="Solid" BorderColor="#336666" BorderWidth="2px"/>
         <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
         <SortedAscendingCellStyle BackColor="#F7F7F7" />
         <SortedAscendingHeaderStyle BackColor="#487575" />
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#275353" />
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" DeleteCommand="DELETE FROM &quot;COLLEGE_PERSON&quot; WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND ((&quot;FIRST_NAME&quot; = :original_FIRST_NAME) OR (&quot;FIRST_NAME&quot; IS NULL AND :original_FIRST_NAME IS NULL)) AND ((&quot;LAST_NAME&quot; = :original_LAST_NAME) OR (&quot;LAST_NAME&quot; IS NULL AND :original_LAST_NAME IS NULL)) AND ((&quot;PHONE_NUMBER&quot; = :original_PHONE_NUMBER) OR (&quot;PHONE_NUMBER&quot; IS NULL AND :original_PHONE_NUMBER IS NULL)) AND ((&quot;DOB&quot; = :original_DOB) OR (&quot;DOB&quot; IS NULL AND :original_DOB IS NULL)) AND ((&quot;GENDER&quot; = :original_GENDER) OR (&quot;GENDER&quot; IS NULL AND :original_GENDER IS NULL)) AND ((&quot;EMAIL&quot; = :original_EMAIL) OR (&quot;EMAIL&quot; IS NULL AND :original_EMAIL IS NULL))" InsertCommand="INSERT INTO &quot;COLLEGE_PERSON&quot; (&quot;PERSON_ID&quot;, &quot;FIRST_NAME&quot;, &quot;LAST_NAME&quot;, &quot;PHONE_NUMBER&quot;, &quot;DOB&quot;, &quot;GENDER&quot;, &quot;EMAIL&quot;) VALUES (:PERSON_ID, :FIRST_NAME, :LAST_NAME, :PHONE_NUMBER, :DOB, :GENDER, :EMAIL)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT * FROM &quot;COLLEGE_PERSON&quot;" UpdateCommand="UPDATE &quot;COLLEGE_PERSON&quot; SET &quot;FIRST_NAME&quot; = :FIRST_NAME, &quot;LAST_NAME&quot; = :LAST_NAME, &quot;PHONE_NUMBER&quot; = :PHONE_NUMBER, &quot;DOB&quot; = :DOB, &quot;GENDER&quot; = :GENDER, &quot;EMAIL&quot; = :EMAIL WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID AND ((&quot;FIRST_NAME&quot; = :original_FIRST_NAME) OR (&quot;FIRST_NAME&quot; IS NULL AND :original_FIRST_NAME IS NULL)) AND ((&quot;LAST_NAME&quot; = :original_LAST_NAME) OR (&quot;LAST_NAME&quot; IS NULL AND :original_LAST_NAME IS NULL)) AND ((&quot;PHONE_NUMBER&quot; = :original_PHONE_NUMBER) OR (&quot;PHONE_NUMBER&quot; IS NULL AND :original_PHONE_NUMBER IS NULL)) AND ((&quot;DOB&quot; = :original_DOB) OR (&quot;DOB&quot; IS NULL AND :original_DOB IS NULL)) AND ((&quot;GENDER&quot; = :original_GENDER) OR (&quot;GENDER&quot; IS NULL AND :original_GENDER IS NULL)) AND ((&quot;EMAIL&quot; = :original_EMAIL) OR (&quot;EMAIL&quot; IS NULL AND :original_EMAIL IS NULL))">
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" DeleteCommand="DELETE FROM &quot;COLLEGE_MEMBER&quot; WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID" InsertCommand="INSERT INTO &quot;COLLEGE_MEMBER&quot; (&quot;PERSON_ID&quot;, &quot;FIRST_NAME&quot;, &quot;LAST_NAME&quot;, &quot;PHONE_NUMBER&quot;, &quot;DOB&quot;, &quot;GENDER&quot;, &quot;EMAIL&quot;) VALUES (:PERSON_ID, :FIRST_NAME, :LAST_NAME, :PHONE_NUMBER, :DOB, :GENDER, :EMAIL)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT * FROM &quot;COLLEGE_MEMBER&quot;" UpdateCommand="UPDATE &quot;COLLEGE_MEMBER&quot; SET &quot;FIRST_NAME&quot; = :FIRST_NAME, &quot;LAST_NAME&quot; = :LAST_NAME, &quot;PHONE_NUMBER&quot; = :PHONE_NUMBER, &quot;DOB&quot; = :DOB, &quot;GENDER&quot; = :GENDER, &quot;EMAIL&quot; = :EMAIL WHERE &quot;PERSON_ID&quot; = :original_PERSON_ID">
     <DeleteParameters>
         <asp:Parameter Name="original_PERSON_ID" Type="Decimal" />
-        <asp:Parameter Name="original_FIRST_NAME" Type="String" />
-        <asp:Parameter Name="original_LAST_NAME" Type="String" />
-        <asp:Parameter Name="original_PHONE_NUMBER" Type="String" />
-        <asp:Parameter Name="original_DOB" Type="DateTime" />
-        <asp:Parameter Name="original_GENDER" Type="String" />
-        <asp:Parameter Name="original_EMAIL" Type="String" />
     </DeleteParameters>
     <InsertParameters>
         <asp:Parameter Name="PERSON_ID" Type="Decimal" />
@@ -53,12 +47,6 @@
         <asp:Parameter Name="GENDER" Type="String" />
         <asp:Parameter Name="EMAIL" Type="String" />
         <asp:Parameter Name="original_PERSON_ID" Type="Decimal" />
-        <asp:Parameter Name="original_FIRST_NAME" Type="String" />
-        <asp:Parameter Name="original_LAST_NAME" Type="String" />
-        <asp:Parameter Name="original_PHONE_NUMBER" Type="String" />
-        <asp:Parameter Name="original_DOB" Type="DateTime" />
-        <asp:Parameter Name="original_GENDER" Type="String" />
-        <asp:Parameter Name="original_EMAIL" Type="String" />
     </UpdateParameters>
 </asp:SqlDataSource>
 <asp:FormView ID="FormView1" runat="server" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
