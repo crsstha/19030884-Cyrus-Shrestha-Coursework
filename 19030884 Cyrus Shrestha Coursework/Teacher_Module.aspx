@@ -7,7 +7,7 @@
          <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="NAME" DataValueField="TEACHER_ID" Height="34px" Width="564px">
     </asp:DropDownList>
      </h5>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT CM.FIRST_NAME ||' '||CM.LAST_NAME  AS NAME,M.MODULE_CODE,M.MODULE_NAME,M.CREDIT_HOUR FROM TEACHER T
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT T.TEACHER_ID, CM.FIRST_NAME ||' '||CM.LAST_NAME  AS NAME,M.MODULE_CODE,M.MODULE_NAME,M.CREDIT_HOUR FROM TEACHER T
 JOIN TEACHER_MODULES TM ON TM.TEACHER_ID=T.TEACHER_ID
 JOIN MODULES M ON M.MODULE_CODE= TM.MODULE_ID
 JOIN COLLEGE_MEMBER CM ON CM.PERSON_ID=T.TEACHER_ID WHERE T.TEACHER_ID = :TEACHER_ID ">
@@ -16,12 +16,13 @@ JOIN COLLEGE_MEMBER CM ON CM.PERSON_ID=T.TEACHER_ID WHERE T.TEACHER_ID = :TEACHE
 </SelectParameters>
     </asp:SqlDataSource>
     
-    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="MODULE_CODE" DataSourceID="SqlDataSource1" cssClass="table table-secondary-bg table striped table-bordered table-hover" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
+    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="TEACHER_ID,MODULE_CODE" DataSourceID="SqlDataSource1" cssClass="table table-secondary-bg table striped table-bordered table-hover" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
         <Columns>
+            <asp:BoundField DataField="TEACHER_ID" HeaderText="TEACHER ID" SortExpression="TEACHER_ID" ReadOnly="True" />
             <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
-            <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE_CODE" ReadOnly="True" SortExpression="MODULE_CODE" />
-            <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE_NAME" SortExpression="MODULE_NAME" />
-            <asp:BoundField DataField="CREDIT_HOUR" HeaderText="CREDIT_HOUR" SortExpression="CREDIT_HOUR" />
+            <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE CODE" SortExpression="MODULE_CODE" ReadOnly="True" />
+            <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE NAME" SortExpression="MODULE_NAME" />
+            <asp:BoundField DataField="CREDIT_HOUR" HeaderText="CREDIT HOUR" SortExpression="CREDIT_HOUR" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />

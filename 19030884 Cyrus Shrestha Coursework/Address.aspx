@@ -65,8 +65,10 @@
     </asp:FormView>
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ADDRESS_ID" DataSourceID="SqlDataSource1" AllowSorting="True" CssClass="table table-secondary-bg table striped table-bordered table-hover  " BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
     <Columns>
-        <asp:CommandField  ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" ControlStyle-CssClass="btn btn-success" ControlStyle-BackColor="#336666"/>
-        <asp:BoundField DataField="ADDRESS_ID" HeaderText="ADDRESS_ID" ReadOnly="True" SortExpression="ADDRESS_ID" />
+        <asp:CommandField  ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" ControlStyle-CssClass="btn btn-success" ControlStyle-BackColor="#336666">
+<ControlStyle BackColor="#336666" CssClass="btn btn-success"></ControlStyle>
+        </asp:CommandField>
+        <asp:BoundField DataField="ADDRESS_ID" HeaderText="ADDRESS ID" ReadOnly="True" SortExpression="ADDRESS_ID" />
         <asp:BoundField DataField="CITY" HeaderText="CITY" SortExpression="CITY" />
         <asp:BoundField DataField="STATE" HeaderText="STATE" SortExpression="STATE" />
         <asp:BoundField DataField="STREET" HeaderText="STREET" SortExpression="STREET" />

@@ -36,10 +36,12 @@
     </asp:FormView>
     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" DataKeyNames="MODULE_CODE" DataSourceID="SqlDataSource1" GridLines="Horizontal" CssClass="table table-secondary-bg table striped table-bordered table-hover">
         <Columns>
-            <asp:CommandField  ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True"  ControlStyle-CssClass="btn btn-success" ControlStyle-BackColor="#336666"/>
-            <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE_CODE" ReadOnly="True" SortExpression="MODULE_CODE" />
-            <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE_NAME" SortExpression="MODULE_NAME" />
-            <asp:BoundField DataField="CREDIT_HOUR" HeaderText="CREDIT_HOUR" SortExpression="CREDIT_HOUR" />
+            <asp:CommandField  ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True"  ControlStyle-CssClass="btn btn-success" ControlStyle-BackColor="#336666">
+<ControlStyle BackColor="#336666" CssClass="btn btn-success"></ControlStyle>
+            </asp:CommandField>
+            <asp:BoundField DataField="MODULE_CODE" HeaderText="MODULE CODE" ReadOnly="True" SortExpression="MODULE_CODE" />
+            <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE NAME" SortExpression="MODULE_NAME" />
+            <asp:BoundField DataField="CREDIT_HOUR" HeaderText="CREDIT HOUR" SortExpression="CREDIT_HOUR" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />

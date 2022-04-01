@@ -3,6 +3,59 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 style="color:#336666">COLLEGE MEMBER</h1>
+<asp:FormView ID="FormView1" cssClass="form-control text-start font-weight-bold" runat="server" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
+    <EditItemTemplate>
+        PERSON_ID:
+        <asp:Label ID="PERSON_IDLabel1" runat="server" Text='<%# Eval("PERSON_ID") %>' />
+        <br />
+        FIRST_NAME:
+        <asp:TextBox ID="FIRST_NAMETextBox" runat="server" Text='<%# Bind("FIRST_NAME") %>' />
+        <br />
+        LAST_NAME:
+        <asp:TextBox ID="LAST_NAMETextBox" runat="server" Text='<%# Bind("LAST_NAME") %>' />
+        <br />
+        PHONE_NUMBER:
+        <asp:TextBox ID="PHONE_NUMBERTextBox" runat="server" Text='<%# Bind("PHONE_NUMBER") %>' />
+        <br />
+        DOB:
+        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
+        <br />
+        GENDER:
+        <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
+        <br />
+        EMAIL:
+        <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+        <br />
+        <asp:LinkButton cssClass="btn btn-success" ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+        &nbsp;<asp:LinkButton cssClass="btn btn-success" ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+    </EditItemTemplate>
+    <InsertItemTemplate>
+        FIRST_NAME:
+        <asp:TextBox CssClass="form-control" ID="FIRST_NAMETextBox" runat="server" Text='<%# Bind("FIRST_NAME") %>' />
+        <br />
+        LAST_NAME:
+        <asp:TextBox CssClass="form-control" ID="LAST_NAMETextBox" runat="server" Text='<%# Bind("LAST_NAME") %>' />
+        <br />
+        PHONE_NUMBER:
+        <asp:TextBox CssClass="form-control" ID="PHONE_NUMBERTextBox" runat="server" Text='<%# Bind("PHONE_NUMBER") %>' />
+        <br />
+        DOB:
+        <asp:TextBox CssClass="form-control" ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
+        <br />
+        GENDER:
+        <asp:TextBox CssClass="form-control" ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
+        <br />
+        EMAIL:
+        <asp:TextBox CssClass="form-control" ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+        <br />
+        <asp:LinkButton cssClass="btn btn-success" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+        &nbsp;<asp:LinkButton  cssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+    </InsertItemTemplate>
+    <ItemTemplate>
+        &nbsp;<asp:LinkButton cssClass="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="ADD NEW PERSON" />
+    </ItemTemplate>
+</asp:FormView>
+
     <asp:GridView ID="GridView1"  runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1"  OnSelectedIndexChanged="GridView1_SelectedIndexChanged"  CssClass="table table-secondary-bg table striped table-bordered table-hover" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
         <Columns>
             
@@ -49,60 +102,5 @@
         <asp:Parameter Name="original_PERSON_ID" Type="Decimal" />
     </UpdateParameters>
 </asp:SqlDataSource>
-<asp:FormView ID="FormView1" runat="server" DataKeyNames="PERSON_ID" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
-    <EditItemTemplate>
-        PERSON_ID:
-        <asp:Label ID="PERSON_IDLabel1" runat="server" Text='<%# Eval("PERSON_ID") %>' />
-        <br />
-        FIRST_NAME:
-        <asp:TextBox ID="FIRST_NAMETextBox" runat="server" Text='<%# Bind("FIRST_NAME") %>' />
-        <br />
-        LAST_NAME:
-        <asp:TextBox ID="LAST_NAMETextBox" runat="server" Text='<%# Bind("LAST_NAME") %>' />
-        <br />
-        PHONE_NUMBER:
-        <asp:TextBox ID="PHONE_NUMBERTextBox" runat="server" Text='<%# Bind("PHONE_NUMBER") %>' />
-        <br />
-        DOB:
-        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
-        <br />
-        GENDER:
-        <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
-        <br />
-        EMAIL:
-        <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
-        <br />
-        <asp:LinkButton cssClass="btn btn-success" ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-        &nbsp;<asp:LinkButton cssClass="btn btn-success" ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-    </EditItemTemplate>
-    <InsertItemTemplate>
-        PERSON_ID:
-        <asp:TextBox ID="PERSON_IDTextBox" runat="server" Text='<%# Bind("PERSON_ID") %>' />
-        <br />
-        FIRST_NAME:
-        <asp:TextBox ID="FIRST_NAMETextBox" runat="server" Text='<%# Bind("FIRST_NAME") %>' />
-        <br />
-        LAST_NAME:
-        <asp:TextBox ID="LAST_NAMETextBox" runat="server" Text='<%# Bind("LAST_NAME") %>' />
-        <br />
-        PHONE_NUMBER:
-        <asp:TextBox ID="PHONE_NUMBERTextBox" runat="server" Text='<%# Bind("PHONE_NUMBER") %>' />
-        <br />
-        DOB:
-        <asp:TextBox ID="DOBTextBox" runat="server" Text='<%# Bind("DOB") %>' />
-        <br />
-        GENDER:
-        <asp:TextBox ID="GENDERTextBox" runat="server" Text='<%# Bind("GENDER") %>' />
-        <br />
-        EMAIL:
-        <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
-        <br />
-        <asp:LinkButton cssClass="btn btn-success" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-        &nbsp;<asp:LinkButton  cssClass="btn btn-success" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-    </InsertItemTemplate>
-    <ItemTemplate>
-        &nbsp;<asp:LinkButton cssClass="btn btn-success" ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="ADD NEW PERSON" />
-    </ItemTemplate>
-</asp:FormView>
 
 </asp:Content>

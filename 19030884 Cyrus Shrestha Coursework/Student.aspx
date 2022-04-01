@@ -44,10 +44,12 @@
 </asp:FormView>
     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="STUDENT_ID" DataSourceID="SqlDataSource1" CssClass="table table-secondary-bg table striped table-bordered table-hover" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
     <Columns>
-        <asp:CommandField  ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" ControlStyle-CssClass="btn btn-success" ControlStyle-BackColor="#336666"/>
-        <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" ReadOnly="True" SortExpression="STUDENT_ID" />
-        <asp:BoundField DataField="ADDMISSION_DATE" HeaderText="ADDMISSION_DATE" SortExpression="ADDMISSION_DATE" />
-        <asp:BoundField DataField="COLLEGE_EMAIL" HeaderText="COLLEGE_EMAIL" SortExpression="COLLEGE_EMAIL" />
+        <asp:CommandField  ButtonType="Button" ShowDeleteButton="True" ShowEditButton="True" ControlStyle-CssClass="btn btn-success" ControlStyle-BackColor="#336666">
+<ControlStyle BackColor="#336666" CssClass="btn btn-success"></ControlStyle>
+        </asp:CommandField>
+        <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT ID" ReadOnly="True" SortExpression="STUDENT_ID" />
+        <asp:BoundField DataField="ADDMISSION_DATE" HeaderText="ADDMISSION DATE" SortExpression="ADDMISSION_DATE" />
+        <asp:BoundField DataField="COLLEGE_EMAIL" HeaderText="COLLEGE EMAIL" SortExpression="COLLEGE_EMAIL" />
         <asp:BoundField DataField="SECTION" HeaderText="SECTION" SortExpression="SECTION" />
     </Columns>
         <FooterStyle BackColor="White" ForeColor="#333333" />

@@ -10,10 +10,10 @@
     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CssClass="table table-secondary-bg table striped table-bordered table-hover" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal">
         <Columns>
             <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" SortExpression="STUDENT_ID" />
-            <asp:BoundField DataField="FIRST_NAME" HeaderText="FIRST_NAME" SortExpression="FIRST_NAME" />
+            <asp:BoundField DataField="FULL_NAME" HeaderText="FULL NAME" SortExpression="FULL_NAME" />
             <asp:BoundField DataField="SECTION" HeaderText="SECTION" SortExpression="SECTION" />
-            <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE_NAME" SortExpression="MODULE_NAME" />
-            <asp:BoundField DataField="ASSIGNMENT_TYPE" HeaderText="ASSIGNMENT_TYPE" SortExpression="ASSIGNMENT_TYPE" />
+            <asp:BoundField DataField="MODULE_NAME" HeaderText="MODULE NAME" SortExpression="MODULE_NAME" />
+            <asp:BoundField DataField="ASSIGNMENT_TYPE" HeaderText="ASSIGNMENT TYPE" SortExpression="ASSIGNMENT_TYPE" />
             <asp:BoundField DataField="GRADE" HeaderText="GRADE" SortExpression="GRADE" />
             <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
         </Columns>
@@ -27,7 +27,7 @@
         <SortedDescendingCellStyle BackColor="#E5E5E5" />
         <SortedDescendingHeaderStyle BackColor="#275353" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT R.STUDENT_ID, CM.FIRST_NAME, S.SECTION, M.MODULE_NAME, A.ASSIGNMENT_TYPE, R.GRADE, G.STATUS FROM RESULT R
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT R.STUDENT_ID, CM.FIRST_NAME|| ' '||CM.LAST_NAME AS FULL_NAME , S.SECTION, M.MODULE_NAME, A.ASSIGNMENT_TYPE, R.GRADE, G.STATUS FROM RESULT R
 JOIN COLLEGE_MEMBER CM ON R.STUDENT_ID = CM.PERSON_ID
 JOIN STUDENT S ON R.STUDENT_ID = S.STUDENT_ID
 JOIN MODULES M ON R.MODULE_ID = M.MODULE_CODE

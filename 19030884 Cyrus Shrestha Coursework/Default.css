@@ -80,7 +80,7 @@
         .accordion-button:focus {
             border-color: #009d63;
             box-shadow: 0 0 0 0.25rem rgb(58 197 88 / 25%);
-            ;
+            
         }
 @media (min-width: 768px) {
     #sidebar-wrapper {
@@ -103,7 +103,6 @@
     width: 300px;
 }
 #content {
-   
     background-color: whitesmoke;
     margin: 50px;
     border-radius: 40px;

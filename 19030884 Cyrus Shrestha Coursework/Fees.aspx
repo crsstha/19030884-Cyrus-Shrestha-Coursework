@@ -9,15 +9,15 @@
          </h5>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="FEE_ID,STUDENT_ID" DataSourceID="SqlDataSource1"  CssClass="table table-secondary-bg table striped table-bordered table-hover" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" AllowSorting="True">
     <Columns>
-        <asp:BoundField DataField="FEE_ID" HeaderText="FEE_ID" ReadOnly="True" SortExpression="FEE_ID" />
-        <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT_ID" ReadOnly="True" SortExpression="STUDENT_ID" />
-        <asp:BoundField DataField="FIRST_NAME" HeaderText="FIRST_NAME" SortExpression="FIRST_NAME" />
+        <asp:BoundField DataField="FEE_ID" HeaderText="FEE ID" ReadOnly="True" SortExpression="FEE_ID" />
+        <asp:BoundField DataField="STUDENT_ID" HeaderText="STUDENT ID" ReadOnly="True" SortExpression="STUDENT_ID" />
+        <asp:BoundField DataField="FULL_NAME" HeaderText="FULL NAME" SortExpression="FULL_NAME" />
         <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
         <asp:BoundField DataField="SECTION" HeaderText="SECTION" SortExpression="SECTION" />
-        <asp:BoundField DataField="ADDMISSION_DATE" HeaderText="ADDMISSION_DATE" SortExpression="ADDMISSION_DATE" />
-        <asp:BoundField DataField="PAYMENT_DATE" HeaderText="PAYMENT_DATE" SortExpression="PAYMENT_DATE" />
+        <asp:BoundField DataField="ADDMISSION_DATE" HeaderText="ADDMISSION DATE" SortExpression="ADDMISSION_DATE" />
+        <asp:BoundField DataField="PAYMENT_DATE" HeaderText="PAYMENT DATE" SortExpression="PAYMENT_DATE" />
         <asp:BoundField DataField="AMOUNT" HeaderText="AMOUNT" SortExpression="AMOUNT" />
-        <asp:BoundField DataField="PAYMENT_STATUS" HeaderText="PAYMENT_STATUS" SortExpression="PAYMENT_STATUS" />
+        <asp:BoundField DataField="PAYMENT_STATUS" HeaderText="PAYMENT STATUS" SortExpression="PAYMENT_STATUS" />
     </Columns>
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
@@ -32,7 +32,7 @@
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="
 SELECT S.STUDENT_ID,CM.FIRST_NAME|| ' '||CM.LAST_NAME AS NAME FROM STUDENT S 
 JOIN COLLEGE_MEMBER CM ON S.STUDENT_ID = CM.PERSON_ID"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT f.fee_id,s.student_id, cm.first_name, cm.email, s.section , s.addmission_date, f.PAYMENT_DATE, f.amount, f.PAYMENT_STATUS FROM FEES f JOIN STUDENT s ON f.student_id = s.student_id JOIN COLLEGE_MEMBER cm ON f.student_id=cm.person_id WHERE S.STUDENT_ID = :STUDENT_ID ORDER BY f.PAYMENT_STATUS DESC">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString3 %>" ProviderName="<%$ ConnectionStrings:ConnectionString3.ProviderName %>" SelectCommand="SELECT F.FEE_ID,S.STUDENT_ID,CM.FIRST_NAME|| ' '||CM.LAST_NAME AS FULL_NAME , CM.EMAIL, S.SECTION , S.ADDMISSION_DATE, F.PAYMENT_DATE, F.AMOUNT, F.PAYMENT_STATUS FROM FEES F JOIN STUDENT S ON F.STUDENT_ID = S.STUDENT_ID JOIN COLLEGE_MEMBER CM ON F.STUDENT_ID=CM.PERSON_ID WHERE S.STUDENT_ID = :STUDENT_ID ORDER BY F.PAYMENT_STATUS DESC">
 
          <SelectParameters>
           <asp:ControlParameter ControlID="DropDownList1" Name="STUDENT_ID" PropertyName="SelectedValue"/>
